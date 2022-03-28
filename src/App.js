@@ -1,5 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
+import { motion } from "framer-motion";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
@@ -9,14 +10,18 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
+        <motion.a
+          whileHover={{
+            scale: 1.2,
+            // transition: { duration: 1 },
+          }}
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </motion.a>
       </header>
     </div>
   );
