@@ -1,15 +1,14 @@
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import { motion } from "framer-motion";
-import logo from "./logo.svg";
-import "./App.css";
 
+import QuestionsList from "./components/Questions/QuestionsList";
+
+const queryClient = new QueryClient();
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
         <motion.a
           whileHover={{
             scale: 1.2,
@@ -22,8 +21,11 @@ function App() {
         >
           Learn React
         </motion.a>
-      </header>
-    </div>
+
+        <QuestionsList />
+      </div>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 
